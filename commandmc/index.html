@@ -1,1 +1,337 @@
-<h1>Commandmc<h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DotGothic16&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background-color: #292929;
+            background-image: url('');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .full_navbar li {
+            list-style: none;
+        }
+
+        .full_navbar a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .full_navbar .links a:hover {
+            text-decoration: underline;
+            text-decoration-color: #fff;
+            color: rgb(255, 255, 255, 0.4);
+        }
+
+        .full_navbar .links a {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+        }
+
+        /*HEADER*/
+        header {
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar .logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar .logo img {
+            width: 37px;
+            transition: transform .7s ease-in-out;
+        }
+
+        .navbar .logo img:hover {
+            transform: rotate(360deg);
+            cursor: pointer;
+        }
+
+        .navbar .links {
+            display: flex;
+            gap: 2rem; 
+        }
+
+        .navbar .toggle_btn {
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        .action_btn {
+            background-color: #e90154;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            outline: none;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: scale 0.2 ease;
+        }
+
+        .action_btn:hover {
+            scale: 1.05;
+            color: #fff;
+        }
+
+        .action_btn:active {
+            scale: 0.95;
+        }
+
+        /*DROPDOWN*/
+        .dropdown_menu {
+            display: none;
+            position: absolute;
+            right: 2rem;
+            top: 60px;
+            height: 0;
+            width: 300px;
+            background: rgb(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: height .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .dropdown_menu.open {
+            height: 230px;
+        }
+
+        .dropdown_menu li {
+            padding: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dropdown_menu .action_btn {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        /*RESPONSIVE NAVBAR*/
+        @media(max-width: 992px) {
+            .navbar .links,
+            .navbar .action_btn {
+                display: none;
+            }
+
+            .navbar .toggle_btn {
+                display: block;
+            }
+
+            .dropdown_menu {
+                display: block;
+            }
+        }
+
+        @media(max-width: 576px) {
+            .dropdown_menu{
+                left: 2rem;
+                width: unset;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background-color: #e90154; 
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background-color: rgba(255, 255, 255, 0.438);
+        }
+
+        .trailer {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+            height: 100vh;
+            object-fit: cover;
+            filter: brightness(0.5);
+        }
+
+        .trailer-text {
+            position: absolute;
+            top: 20%;
+            left: 6%;
+            right: 6%;
+            color: white;
+            background: rgb(255, 255, 255, 0.1);
+            padding: 30px;
+            padding-right: 20vw;
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        .trailer-text h1 {
+            font-size: 30px;
+            letter-spacing: 4px;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .trailer-text h2 {
+            font-size: 25px;
+            letter-spacing: 6px;
+            font-family: 'DotGothic16', sans-serif;
+        }
+
+        .trailer-text br {
+            display: block;
+            margin-top: 50px;
+            border: none;
+            content: "";
+            height: 1px;
+        }
+
+        @media(max-width: 992px) {
+            .trailer-text h1 {
+                font-size: 25px;
+            }
+
+            .trailer-text h2 {
+                font-size: 20px;
+            }
+        }
+
+        .below_content {
+            margin-top: 95vh;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgb(255, 255, 255, 0.1);
+            transition: 0.4s;
+            width: 300px;
+            background-color: #474747;
+            color: #fff;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+            float: left;
+            margin: 10px;
+            padding: 0px 20px 20px 20px;
+            overflow: hidden;
+            left: 2rem;
+        }
+
+        .card img {
+            top: 50%;
+            left: 0;
+        }
+
+        
+        @media(max-width: 576px) {
+            .card {
+                left: 2rem;
+                right: 2rem;
+                width: unset;
+            }
+        }
+    </style>
+</head>
+<body>    
+    <header>
+        <div class="full_navbar">
+            <div class="navbar">
+                <div class="logo">
+                    <!--<a href="/">Commandmc.eu </a>-->
+                    <a href="/"><img src="/data?n=/content/server-icon.png" alt="Commandmc.eu"></a>
+                </div>
+                <ul class="links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">Infos</a></li>
+                    <li><a href="/discord">Discord</a></li>
+                </ul>
+                <a href="/join" class="action_btn">Beitreten</a>
+                <div class="toggle_btn">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+            <div class="dropdown_menu">
+                <div class="links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">Infos</a></li>
+                    <li><a href="/discord">Discord</a></li>
+                </div>
+                <li><a href="/join" class="action_btn">Beitreten</a></li>
+            </div>
+        </div>
+    </header>
+
+    <!--<video src="/data?n=/content/trailer-cut.mov" autoplay muted loop class="trailer"></video>-->
+
+    <video autoplay loop muted playsinline poster="/data?n=/content/trailer-cut-thumbnail.png" src="/data?n=/content/trailer-cut.mp4" class="trailer">
+        <source src="/data?n=/content/trailer-cut.mp4" type="video/mp4"></source>
+        <source src="/data?n=/content/trailer-cut.webm" type="video/webm"></source>
+        <source src="/data?n=/content/trailer-cut.mov" type="video/mov"></source>
+    </video>
+
+    <div class="trailer-text">
+        <h1>WILLKOMMEN</h1>
+        <h2>auf Commandmc.eu</h2>
+    </div>
+
+    <div class="below_content">
+        <div class="card">
+            <img src="/data?n=/content/bedwars-card.jpg" alt="lol" style="height: 200px; top: 0;">
+            <div class="container">
+               <h4><b>Bedwars</b></h4>
+               <p>Ein klassischer Minecraft Gamemode</p>
+               <p>Made by Commandmc.eu</p> 
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toggle_btn = document.querySelector('.toggle_btn')
+        const toggle_btn_icon = document.querySelector('.toggle_btn i')
+        const dropdown_menu = document.querySelector('.dropdown_menu')
+
+        toggle_btn.onclick = function () {
+            dropdown_menu.classList.toggle('open')
+            const isOpen = dropdown_menu.classList.contains('open')
+            toggle_btn_icon.classList = isOpen
+            ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'
+        }
+    </script>
+</body>
+</html>
