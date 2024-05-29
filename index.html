@@ -6,52 +6,41 @@
     <title>About Me</title>
     <style>
         body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            background-color: #1a1a1a;
+            color: white;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .container {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
-        }
-        .container {
             text-align: center;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-        .container::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: linear-gradient(45deg, #6b6b6b, #9b9b9b, #6b6b6b, #9b9b9b);
-            background-size: 400%;
-            z-index: -1;
-            border-radius: 20px;
-            animation: borderAnimation 20s linear infinite;
-        }
-        @keyframes borderAnimation {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 400% 0;
-            }
         }
         .about {
             font-size: 18px;
             margin-bottom: 20px;
+            color: #333;
         }
         .skills {
             list-style: none;
             padding: 0;
             margin: 0;
             font-size: 18px;
+            color: #333;
         }
         .skills li {
             margin: 10px 0;
@@ -59,10 +48,12 @@
         .extra {
             margin-top: 20px;
             font-size: 16px;
+            color: #333;
         }
     </style>
 </head>
 <body>
+    <div id="particles-js"></div>
     <div class="container">
         <div class="about">
             <p>Hallo! Ich bin [Dein Name]. Willkommen auf meiner persönlichen Website!</p>
@@ -76,5 +67,119 @@
             <p>Hier kannst du noch mehr über mich erfahren...</p>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script>
+        particlesJS('particles-js',
+        {
+          "particles": {
+            "number": {
+              "value": 100,
+              "density": {
+                "enable": true,
+                "value_area": 800
+              }
+            },
+            "color": {
+              "value": "#ffffff"
+            },
+            "shape": {
+              "type": "circle",
+              "stroke": {
+                "width": 0,
+                "color": "#000000"
+              },
+              "polygon": {
+                "nb_sides": 5
+              },
+              "image": {
+                "src": "img/github.svg",
+                "width": 100,
+                "height": 100
+              }
+            },
+            "opacity": {
+              "value": 0.5,
+              "random": false,
+              "anim": {
+                "enable": false,
+                "speed": 1,
+                "opacity_min": 0.1,
+                "sync": false
+              }
+            },
+            "size": {
+              "value": 3,
+              "random": true,
+              "anim": {
+                "enable": false,
+                "speed": 40,
+                "size_min": 0.1,
+                "sync": false
+              }
+            },
+            "line_linked": {
+              "enable": true,
+              "distance": 150,
+              "color": "#ffffff",
+              "opacity": 0.4,
+              "width": 1
+            },
+            "move": {
+              "enable": true,
+              "speed": 6,
+              "direction": "none",
+              "random": false,
+              "straight": false,
+              "out_mode": "out",
+              "bounce": false,
+              "attract": {
+                "enable": false,
+                "rotateX": 600,
+                "rotateY": 1200
+              }
+            }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+              "onhover": {
+                "enable": true,
+                "mode": "repulse"
+              },
+              "onclick": {
+                "enable": true,
+                "mode": "push"
+              },
+              "resize": true
+            },
+            "modes": {
+              "grab": {
+                "distance": 400,
+                "line_linked": {
+                  "opacity": 1
+                }
+              },
+              "bubble": {
+                "distance": 400,
+                "size": 40,
+                "duration": 2,
+                "opacity": 8,
+                "speed": 3
+              },
+              "repulse": {
+                "distance": 200,
+                "duration": 0.4
+              },
+              "push": {
+                "particles_nb": 4
+              },
+              "remove": {
+                "particles_nb": 2
+              }
+            }
+          },
+          "retina_detect": true
+        });
+    </script>
 </body>
 </html>
