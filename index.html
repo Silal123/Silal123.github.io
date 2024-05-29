@@ -1,1 +1,80 @@
-<h1>hi<h1>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #6b6b6b, #9b9b9b, #6b6b6b, #9b9b9b);
+            background-size: 400%;
+            z-index: -1;
+            border-radius: 20px;
+            animation: borderAnimation 20s linear infinite;
+        }
+        @keyframes borderAnimation {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 400% 0;
+            }
+        }
+        .about {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .skills {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 18px;
+        }
+        .skills li {
+            margin: 10px 0;
+        }
+        .extra {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="about">
+            <p>Hallo! Ich bin [Dein Name]. Willkommen auf meiner persönlichen Website!</p>
+        </div>
+        <ul class="skills">
+            <li>💻 Programmierung</li>
+            <li>🎨 Grafikdesign</li>
+            <li>📊 Datenanalyse</li>
+        </ul>
+        <div class="extra">
+            <p>Hier kannst du noch mehr über mich erfahren...</p>
+        </div>
+    </div>
+</body>
+</html>
