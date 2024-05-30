@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Weiterleitung</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var redirectUrl = urlParams.get('url');
+            
+            if (redirectUrl) {
+                window.location.href = redirectUrl;
+            } else {
+                document.body.innerHTML = "<p>Kein Weiterleitungsziel angegeben.</p>";
+            }
+        };
+    </script>
+    <style>
+        body {
+            background-color: #121212;
+        }
+    </style>
+</head>
+<body>
+    <p>Sie werden weitergeleitet...</p>
+</body>
+</html>
