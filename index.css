@@ -1,0 +1,85 @@
+:root {
+    --background: rgb(50, 50, 50);
+    --textcolor: #ffffff;
+    --underlinecolor: #ffffff;
+    --green: #009e00;
+  }
+
+  body {
+      margin: 0;
+      font-family: 'Press Start 2P';
+      overflow: hidden;
+      background-color: var(--background);
+      color: var(--textcolor);
+  }
+  #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+  }
+  .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      z-index: -10;
+      text-decoration: none;
+      color: var(--textcolor);
+  }
+
+  .underline {
+    text-decoration: underline var(--underlinecolor) dashed 2px;
+  }
+
+  .bigger {
+    font-size: 15px;
+  }
+
+  .text-container {
+    background-color: var(--background);
+    border-radius: 40px;
+    padding: 40px;
+    z-index: 10;
+  }
+
+  .text-container a:hover {
+    text-decoration: none;
+    color: var(--green);
+    font-size: 12px;
+  }
+
+  .text-container a {
+    text-decoration: none;
+    color: var(--textcolor);
+  }
+
+  .about {
+      font-size: 10px;
+      margin-bottom: 20px;
+      color: var(--textcolor);
+  }
+
+  .skills {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 11px;
+      margin-top: 20px;
+      color: var(--textcolor);
+      text-decoration: none;
+  }
+
+  .skills li {
+      margin: 8px 0;
+  }
+
+  .extra {
+      margin-top: 20px;
+      font-size: 10px;
+      color: var(--textcolor);
+  }
